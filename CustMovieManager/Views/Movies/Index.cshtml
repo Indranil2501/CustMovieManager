@@ -1,0 +1,26 @@
+﻿@model IEnumerable<CustMovieManager.Models.Movie>
+
+@{ 
+    var movieCount = Model.Count() > 0 ? true : false;
+}
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+@if (movieCount)
+{
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><b>Name:&nbsp;</b>@item.Name</li>
+        }
+    </ul>
+}
+else
+{
+    <h5>No movies available!</h5>
+}

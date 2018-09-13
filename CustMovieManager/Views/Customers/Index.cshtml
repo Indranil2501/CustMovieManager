@@ -1,0 +1,22 @@
+﻿@model IEnumerable<CustMovieManager.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var isCustomerPresent = Model.Count() > 0 ? true : false;
+}
+<h2>Customer List</h2>
+@if (isCustomerPresent)
+{
+    <ul>
+        @foreach (var cust in Model)
+        {
+            <li>@Html.ActionLink(cust.Name, "Details", new { Id = cust.Id })</li>
+        }
+    </ul>
+}
+else
+{
+    <h5>We don't have any customers yet.</h5>
+}
